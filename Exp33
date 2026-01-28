@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <pthread.h>
+
+void* myThread(void* arg)
+{
+    printf("Thread is running\n");
+    return NULL;
+}
+
+int main()
+{
+    pthread_t t;
+
+    pthread_create(&t, NULL, myThread, NULL);
+
+    pthread_join(t, NULL);   // wait for thread
+    return 0;
+}
